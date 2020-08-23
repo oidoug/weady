@@ -2,16 +2,30 @@ import React from 'react'
 import {
   View,
   Text,
+  TouchableOpacity,
 } from 'react-native'
+
+import { adjustedDate, hourMinutesFormat } from '../../service/date'
 
 import { styles } from './styles'
 
-interface CityCellProps {
-  title: string
+export interface CityCellProps {
+  title: string,
+  timezone: number,
+  onPress: any,
 }
 
-const CityCell = ({ title }: CityCellProps) => (
-  <View style={styles.cell}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
-);
+const CityCell = ({ title, timezone, onPress }: CityCellProps) => {
+
+  return (
+    <TouchableOpacity
+      style={styles.cell}
+      onPress={onPress}
+    >
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.time}>{hourMinutesFormat(adjustedDate(new Date(), timezone))}</Text>
+    </TouchableOpacity>
+  );
+}
+
+export default CityCell

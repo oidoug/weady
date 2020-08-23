@@ -14,13 +14,15 @@ import { styles } from './styles'
 interface SearchBarProps {
   onPress: any,
   placeholder: string,
+  disabled: boolean,
 }
 
 /**
- * 
+ * SearchBar component
  * @param onPress Callback function called when the field is filled and user ends the edit.
+ * @param placeholder Default text to be draw.
  */
-const SearchBar = ({onPress, placeholder} : SearchBarProps) => {
+const SearchBar = ({onPress, placeholder, disabled} : SearchBarProps) => {
   const [query, setQuery] = useState('')
 
   return (
@@ -34,9 +36,10 @@ const SearchBar = ({onPress, placeholder} : SearchBarProps) => {
         returnKeyType="search"
         placeholder={placeholder}
         onChangeText={text => setQuery(text)}
-        onEndEditing={() => {
+        onSubmitEditing={() => {
           onPress(query)
         }}
+        editable={!disabled}
       />
       <TouchableOpacity
         onPress={() => onPress(query)}

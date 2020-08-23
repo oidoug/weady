@@ -13,4 +13,17 @@ const api = axios.create({
   }
 })
 
+export const getWeather = (query: string) => {
+  return api.get("/weather", {
+    params: { q: query }
+  })
+}
+
+export const getWeatherById = (id: string) => {
+  return api.get("/weather", {
+    params: { id }
+  })
+}
+
+
 export default api;

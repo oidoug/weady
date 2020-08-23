@@ -10,13 +10,44 @@ import {
 
 import SearchBar from '../../components/SearchBar'
 
+import { getWeather } from '../../service/api'
+import { storeCity } from '../../service/save'
+
 import { styles } from './styles'
 
 /**
  * AddCity screen
  * initial screen and used to add new cities to watch.
  */
-const AddCity = () => {
+const AddCity = ({ navigation }: any) => {
+
+  const [loading, setLoading] = useState(false)
+
+  const searchCity = async (query: string) => {
+
+    // if empty or null, no action can be performed.
+    if (!query) return
+
+    setLoading(true)
+
+    try {
+      const result = await getWeather(query)
+      const { id, timezone, name } = result.data
+      await storeCity({ id, timezone, name })
+      // Save found city and navigate to list.
+      // todo: save it.
+      navigation.navigate('CitiesList')
+
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        alert("Requested city was not found. Please try again.")
+      } else {
+        alert("We couldn't connect to the weather provider. Check your Internet and try again.")
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <KeyboardAvoidingView
@@ -33,9 +64,10 @@ const AddCity = () => {
           </View>
           <View style={styles.lower}>
             <SearchBar
+              disabled={loading}
               placeholder="City name"
-              onPress={() => {
-                alert("search")
+              onPress={(query: string) => {
+                searchCity(query)
               }}
             />
           </View>

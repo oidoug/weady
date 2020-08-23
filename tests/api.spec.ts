@@ -1,17 +1,20 @@
-import api from '../src/service/api'
+import api, { getWeather } from '../src/service/api'
 
 it("creates api instace", () => {
   expect(api).toBeDefined()
 })
 
 describe('api response', () => {
-  it("connects to current weather api endpoint", async () => {
-    const result = await api.get("/weather", {
-      params: {
-        q: "Curitiba"
-      }
-    })
-    console.log(result)
+  it("gets weather response for a valid city", async () => {
+    const result = await getWeather("Curitiba")
     expect(result.status).toEqual(200)
+  })
+
+  it("gets not found response for a invalid city", async () => {
+    try {
+      const result = await getWeather("XXX")
+    } catch (error) {
+      expect(error.response.status).toEqual(404)
+    }
   })
 })
