@@ -12,6 +12,12 @@ Concept weather app.
 - Vector icons
 - Custom styled Map
 
+## Whats next
+
+- There is a bug on updating the city list on start that needs fixing
+- Dark mode (design is ready)
+- A wind compass over the map, to visualize the direction of the Wind
+
 ## Screenshots on iOS
 
 <img src="https://user-images.githubusercontent.com/129619/91041986-fd191000-e5de-11ea-9579-ba0393a4a81c.png" width="45%"></img>
