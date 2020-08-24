@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import MapView from 'react-native-maps'
 
-import WeatherIcon from '../../components/WeatherIcon'
+import SVG from '../../components/SVG'
 
 import { getWeatherById } from '../../service/api'
 
@@ -53,6 +53,7 @@ const WeatherDetails = ({ route }: any) => {
 
   useEffect(() => {
     setLoading(true)
+
     try {
       getWeatherById(id).then((result) => {
         setData(result.data)
@@ -82,7 +83,7 @@ const WeatherDetails = ({ route }: any) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>{name}</Text>
-        <WeatherIcon id={data.weather[0].icon}/>
+        <SVG id={data.weather[0].icon}/>
       </View>
       <View style={styles.body}>
         <Text style={styles.subtitle}>

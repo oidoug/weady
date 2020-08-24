@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import {
   SafeAreaView,
   View,
@@ -7,9 +7,11 @@ import {
 } from 'react-native'
 
 import { MaterialIcons } from '@expo/vector-icons';
-import Logo from '../../../assets/wind vane.svg'
 
-import { getCities, removeCity, CityProps } from '../../service/save'
+import SVG from '../../components/SVG'
+
+// Custom hook useStoreCities
+import { Storage } from '../../service/save'
 
 import CityCell from '../../components/CityCell'
 
@@ -22,7 +24,7 @@ import { styles } from './styles'
  */
 const CitiesList = ({ navigation }: any) => {
 
-  const [cities, setCities] = useState<CityProps[]>([])
+  const {cities, removeCity} = useContext(Storage)
   const [editMode, setEditMode] = useState(false)
 
   React.useLayoutEffect(() => {
@@ -50,12 +52,10 @@ const CitiesList = ({ navigation }: any) => {
     });
   }, [navigation, editMode]);
 
-  // Load cities asynchronously
   useEffect(() => {
-    getCities().then((data) => {
-      setCities(data!)
-    })
-  }, [])
+    console.log('cities changed: ')
+    console.log(cities)
+  }, [cities])
 
   const renderItem = ({ item }: any) => (
     <CityCell
@@ -69,15 +69,10 @@ const CitiesList = ({ navigation }: any) => {
         })
       }}
       onDelete={async () => {
-        await removeCity(item.id)
-        getCities().then((data) => {
-          setCities(data!)
-        })
+        removeCity(item.id)
       }}
     />
   );
-
-  console.log(cities.length)
 
   return (
     <SafeAreaView style={styles.container}>
@@ -87,12 +82,13 @@ const CitiesList = ({ navigation }: any) => {
         renderItem={renderItem}
         keyExtractor={item => `${item.id}`}
       />
-      { cities.length === 0
+      {/* { cities.length === 0
         ? <View style={styles.logo}>
-            <Logo width={200} height={200} />
+            <SVG id="logo" />
         </View>
         : null
       }
+      */}
     </SafeAreaView>
   )
 }

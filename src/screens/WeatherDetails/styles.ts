@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
     fontSize: 36,
   },
   body: {
+    marginTop: -20,
     marginHorizontal: 30,
     marginBottom: 30,
   },
@@ -32,7 +33,9 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 64,
     fontWeight: 'bold',
+    // Forced positioning to achive visual equilibrium.
     bottom: -32,
+    left: 5,
   },
   value: {
     fontSize: 18,

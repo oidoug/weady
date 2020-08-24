@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {
   View,
   Image,
@@ -11,7 +11,9 @@ import {
 import SearchBar from '../../components/SearchBar'
 
 import { getWeather } from '../../service/api'
-import { storeCity } from '../../service/save'
+
+// Custom hook useStoreCities
+import { Storage } from '../../service/save'
 
 import { styles } from './styles'
 
@@ -21,6 +23,7 @@ import { styles } from './styles'
  */
 const AddCity = ({ navigation }: any) => {
 
+  const { storeCity } = useContext(Storage)
   const [loading, setLoading] = useState(false)
 
   const searchCity = async (query: string) => {

@@ -10,7 +10,9 @@ import AddCity from './src/screens/AddCity'
 import CitiesList from './src/screens/CitiesList'
 import WeatherDetails from './src/screens/WeatherDetails'
 
-const Stack = createStackNavigator();
+import { useProviderStorage, Storage } from './src/service/save'
+
+const Stack = createStackNavigator()
 
 const BackButtonIcon = () => (
   <MaterialIcons
@@ -22,48 +24,51 @@ const BackButtonIcon = () => (
 )
 
 export default function App() {
+  const storage = useProviderStorage()
   return (
-    <NavigationContainer>
-      <StatusBar translucent/>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="CitiesList"
-          component={CitiesList}
-          options={{
-            title: "",
-            headerTransparent: false,
-            headerStyle: {
-              borderBottomWidth: 0,
-            },
-          }}
-        />
-        <Stack.Screen
-          name="AddCity"
-          component={AddCity}
-          options={{
-            title: "",
-            headerTransparent: true,
-            headerStyle: {
-              borderBottomWidth: 0,
-            },
-            headerBackImage: BackButtonIcon,
-            headerBackTitleVisible: false,
-          }}
-        />
-        <Stack.Screen
-          name="WeatherDetails"
-          component={WeatherDetails}
-          options={{
-            title: "",
-            headerTransparent: true,
-            headerStyle: {
-              borderBottomWidth: 0,
-            },
-            headerBackImage: BackButtonIcon,
-            headerBackTitleVisible: false,
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Storage.Provider value={storage}>
+      <NavigationContainer>
+        <StatusBar translucent/>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="CitiesList"
+            component={CitiesList}
+            options={{
+              title: "",
+              headerTransparent: false,
+              headerStyle: {
+                borderBottomWidth: 0,
+              },
+            }}
+          />
+          <Stack.Screen
+            name="AddCity"
+            component={AddCity}
+            options={{
+              title: "",
+              headerTransparent: true,
+              headerStyle: {
+                borderBottomWidth: 0,
+              },
+              headerBackImage: BackButtonIcon,
+              headerBackTitleVisible: false,
+            }}
+          />
+          <Stack.Screen
+            name="WeatherDetails"
+            component={WeatherDetails}
+            options={{
+              title: "",
+              headerTransparent: true,
+              headerStyle: {
+                borderBottomWidth: 0,
+              },
+              headerBackImage: BackButtonIcon,
+              headerBackTitleVisible: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Storage.Provider>
   )
 }
