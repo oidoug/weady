@@ -8,6 +8,9 @@ Concept weather app.
 - Axios for easier API configuraion
 - Context API
 - useState, useEffect, and useContext Hooks
+- SVG files
+- Vector icons
+- Custom styled Map
 
 ## Screenshots on iOS
 
