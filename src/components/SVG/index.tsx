@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Logo from '../../../assets/wind vane.svg'
 import Icon01 from '../../../assets/01.svg'
 import Icon02 from '../../../assets/02.svg'
 import Icon03 from '../../../assets/03.svg'
@@ -14,8 +15,11 @@ interface Props {
   id: string
 }
 
-const WeatherIcon = ({ id }: Props) => {
+const SVG = ({ id }: Props) => {
   switch(id.replace('n', '').replace('d', '')) {
+    case 'logo':
+      return <Logo width={200} height={200}/>
+      break
     case '01':
       return <Icon01 width={200} height={200}/>
       break
@@ -48,4 +52,4 @@ const WeatherIcon = ({ id }: Props) => {
   }
 }
 
-export default WeatherIcon
+export default SVG
