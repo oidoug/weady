@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native'
 
-// import { colors } from '../../app.styles'
+import { colors } from '../../app.styles'
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.screenBackgroundColor,
   },
   background: {
     position: 'absolute',

@@ -11,5 +11,6 @@ export const adjustedDate = (date: Date, timezoneInSec: number) => {
 }
 
 export const hourMinutesFormat = (date: Date) => {
-  return `${date.getHours()}:${date.getMinutes()}`
+  return `${date.getUTCHours()}`.padStart(2, '0')
+    + `:` + `${date.getMinutes()}`.padStart(2, '0')
 }

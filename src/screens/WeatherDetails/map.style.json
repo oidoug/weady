@@ -41,14 +41,6 @@
     ]
   },
   {
-    "featureType": "administrative.neighborhood",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
     "featureType": "poi",
     "elementType": "geometry",
     "stylers": [
@@ -59,27 +51,10 @@
   },
   {
     "featureType": "poi",
-    "elementType": "labels.text",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "poi",
     "elementType": "labels.text.fill",
     "stylers": [
       {
         "color": "#757575"
-      }
-    ]
-  },
-  {
-    "featureType": "poi.business",
-    "stylers": [
-      {
-        "visibility": "off"
       }
     ]
   },
@@ -111,33 +86,6 @@
     ]
   },
   {
-    "featureType": "road",
-    "elementType": "labels",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "road",
-    "elementType": "labels.icon",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "road.arterial",
-    "elementType": "labels",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
     "featureType": "road.arterial",
     "elementType": "labels.text.fill",
     "stylers": [
@@ -157,15 +105,6 @@
   },
   {
     "featureType": "road.highway",
-    "elementType": "labels",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "road.highway",
     "elementType": "labels.text.fill",
     "stylers": [
       {
@@ -175,26 +114,10 @@
   },
   {
     "featureType": "road.local",
-    "stylers": [
-      {
-        "visibility": "off"
-      }
-    ]
-  },
-  {
-    "featureType": "road.local",
     "elementType": "labels.text.fill",
     "stylers": [
       {
         "color": "#9e9e9e"
-      }
-    ]
-  },
-  {
-    "featureType": "transit",
-    "stylers": [
-      {
-        "visibility": "off"
       }
     ]
   },
@@ -222,15 +145,6 @@
     "stylers": [
       {
         "color": "#c9c9c9"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "labels.text",
-    "stylers": [
-      {
-        "visibility": "off"
       }
     ]
   },

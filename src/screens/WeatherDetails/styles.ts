@@ -1,13 +1,16 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
+import { colors } from '../../app.styles'
+
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.screenBackgroundColor,
   },
   header: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 80,
+    marginTop: 60,
   },
   image: {
     width: 200,
@@ -18,7 +21,8 @@ export const styles = StyleSheet.create({
     fontSize: 36,
   },
   body: {
-    margin: 30,
+    marginHorizontal: 30,
+    marginBottom: 30,
   },
   line: {
     flexDirection: 'row',
@@ -26,8 +30,9 @@ export const styles = StyleSheet.create({
   },
   subtitle: {
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 64,
     fontWeight: 'bold',
+    bottom: -32,
   },
   value: {
     fontSize: 18,
@@ -35,13 +40,15 @@ export const styles = StyleSheet.create({
   tag: {
     fontSize: 10,
   },
-// Represents a 20pts increment.
+  paddingLeft: {
+    left: -7,
+  },
+  // Represents a 20pts increment.
   spacer: {
     marginVertical: 10,
   },
   map: {
     flex: 1,
-    backgroundColor: '#000',
   },
   mapView: {
     width: Dimensions.get('window').width,

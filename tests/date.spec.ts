@@ -10,6 +10,6 @@ describe('date format helper', () => {
   })
 
   it("formats date", () => {
-    expect(hourMinutesFormat(new Date("2021/01/01 18:45"))).toBe("18:45")
+    expect(hourMinutesFormat(new Date("2021/01/01 18:45 UTC"))).toBe("18:45")
   })
 })
